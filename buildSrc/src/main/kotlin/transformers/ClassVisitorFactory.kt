@@ -1,68 +1,18 @@
 package transformers
 
 import org.objectweb.asm.ClassVisitor
-import org.objectweb.asm.MethodVisitor
-import org.objectweb.asm.Opcodes.*
-import transformers.ClickableClassVisitor.ClickableMethodVisitor.Companion.CLICAKBLE_METHOD_DESCRIPTOR
-import transformers.ClickableClassVisitor.ClickableMethodVisitor.Companion.CLICKBLE_METHOD_NAME
 import transformers.ClickableClassVisitor.Companion.CLICKBLE_CLASS
+import transformers.RangeSliderClassVisitor.Companion.RANGE_SLIDER_CLASS
+import transformers.SliderClassVisitor.Companion.SLIDER_CLASS
 
 public object ClassVisitorFactory {
     fun getClassVisitor(classFilterName: String, classVisitor: ClassVisitor): ClassVisitor {
+        println(classFilterName)
         return when (classFilterName) {
-            CLICKBLE_CLASS -> ClickableClassVisitor(classVisitor = classVisitor)
+            JOPA_CLASS -> JopaClassVisitor(classVisitor = classVisitor)
             else -> classVisitor
         }
     }
 }
 
-public class ClickableClassVisitor(
-    api: Int = ASM9,
-    classVisitor: ClassVisitor
-) : ClassVisitor(api, classVisitor) {
-    override fun visitMethod(
-        access: Int,
-        name: String?,
-        descriptor: String?,
-        signature: String?,
-        exceptions: Array<out String>?
-    ): MethodVisitor {
-        val methodVisitor = super.visitMethod(access, name, descriptor, signature, exceptions)
-        return if (CLICKBLE_METHOD_NAME.equals(name) && CLICAKBLE_METHOD_DESCRIPTOR.equals(descriptor)) {
-            ClickableMethodVisitor(methodVisitor)
-        } else {
-            methodVisitor
-        }
-    }
 
-    companion object {
-        public const val CLICKBLE_CLASS = "androidx.compose.foundation.ClickableKt"
-        fun instrumentClass(classFilterName: String): Boolean {
-            return CLICKBLE_CLASS.equals(classFilterName)
-        }
-    }
-
-    private class ClickableMethodVisitor(mv: MethodVisitor) : MethodVisitor(ASM9, mv) {
-        override fun visitCode() {
-            println("33333")
-            mv.visitTypeInsn(NEW, "com/example/jetpackinstrumentation/ClickableComposeCallback")
-            mv.visitInsn(DUP)
-            mv.visitVarInsn(ALOAD, 4);
-            mv.visitMethodInsn(
-                INVOKESPECIAL,
-                "com/example/jetpackinstrumentation/ClickableComposeCallback",
-                "<init>",
-                "(Lkotlin/jvm/functions/Function0;)V",
-                false
-            )
-            mv.visitVarInsn(ASTORE, 4)
-            super.visitCode()
-        }
-
-        companion object {
-            public const val CLICKBLE_METHOD_NAME = "clickable-XHw0xAI"
-            public const val CLICAKBLE_METHOD_DESCRIPTOR =
-                "(Landroidx/compose/ui/Modifier;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;Lkotlin/jvm/functions/Function0;)Landroidx/compose/ui/Modifier;"
-        }
-    }
-}

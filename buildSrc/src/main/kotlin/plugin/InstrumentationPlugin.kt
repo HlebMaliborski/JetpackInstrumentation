@@ -46,13 +46,12 @@ abstract class InstrumentationPlugin @Inject constructor(
         val androidComponents = target.extensions.getByType(AndroidComponentsExtension::class.java)
         androidComponents.onVariants { variant ->
             variant.instrumentation.setAsmFramesComputationMode(FramesComputationMode.COMPUTE_FRAMES_FOR_ALL_CLASSES)
-            variant.instrumentation.transformClassesWith<InstrumentationPluginParameters>(InstrumentationPluginFactory::class.java,
-                InstrumentationScope.ALL,
-                { params ->
-                    params.getBuildServer().set(buildOperationsService)
-                    params.instrumentedClasses.set(extension.instrumentedClasses)
-                }
-            )
+            variant.instrumentation.transformClassesWith(InstrumentationPluginFactory::class.java,
+                InstrumentationScope.ALL
+            ) { params ->
+                params.getBuildServer().set(buildOperationsService)
+                params.instrumentedClasses.set(extension.instrumentedClasses)
+            }
         }
     }
 
@@ -61,7 +60,6 @@ abstract class InstrumentationPlugin @Inject constructor(
             classContext: ClassContext, nextClassVisitor: ClassVisitor
         ): ClassVisitor {
             val b = parameters.get().getBuildServer().get().isCompose
-            println("is compose $b")
             return ClassVisitorFactory.getClassVisitor(
                 classContext.currentClassData.className,
                 nextClassVisitor
@@ -69,6 +67,7 @@ abstract class InstrumentationPlugin @Inject constructor(
         }
 
         override fun isInstrumentable(classData: ClassData): Boolean {
+            val a = 1
             return parameters.get().instrumentedClasses.get().contains(classData.className)
         }
     }

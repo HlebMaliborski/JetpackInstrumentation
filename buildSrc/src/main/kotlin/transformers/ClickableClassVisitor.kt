@@ -1,0 +1,62 @@
+package transformers
+
+import org.objectweb.asm.ClassVisitor
+import org.objectweb.asm.MethodVisitor
+import org.objectweb.asm.Opcodes
+import transformers.ClickableClassVisitor.ClickableMethodVisitor.Companion.CLICAKBLE_METHOD_DESCRIPTOR
+import transformers.ClickableClassVisitor.ClickableMethodVisitor.Companion.CLICKBLE_METHOD_NAME
+
+/**
+ *
+ * @author gleb.maliborsky
+ */
+public class ClickableClassVisitor(
+    api: Int = Opcodes.ASM9,
+    classVisitor: ClassVisitor
+) : ClassVisitor(api, classVisitor) {
+    override fun visitMethod(
+        access: Int,
+        name: String?,
+        descriptor: String?,
+        signature: String?,
+        exceptions: Array<out String>?
+    ): MethodVisitor {
+        val methodVisitor = super.visitMethod(access, name, descriptor, signature, exceptions)
+        return if (CLICKBLE_METHOD_NAME.equals(name) && CLICAKBLE_METHOD_DESCRIPTOR.equals(descriptor)) {
+            ClickableMethodVisitor(methodVisitor)
+        } else {
+            methodVisitor
+        }
+    }
+
+    companion object {
+        public const val CLICKBLE_CLASS = "androidx.compose.foundation.ClickableKt"
+        fun instrumentClass(classFilterName: String): Boolean {
+            return CLICKBLE_CLASS.equals(classFilterName)
+        }
+    }
+
+    private class ClickableMethodVisitor(mv: MethodVisitor) : MethodVisitor(Opcodes.ASM9, mv) {
+        override fun visitCode() {
+            println("33333")
+            mv.visitTypeInsn(Opcodes.NEW, "com/example/jetpackinstrumentation/ClickableComposeCallback")
+            mv.visitInsn(Opcodes.DUP)
+            mv.visitVarInsn(Opcodes.ALOAD, 4);
+            mv.visitMethodInsn(
+                Opcodes.INVOKESPECIAL,
+                "com/example/jetpackinstrumentation/ClickableComposeCallback",
+                "<init>",
+                "(Lkotlin/jvm/functions/Function0;)V",
+                false
+            )
+            mv.visitVarInsn(Opcodes.ASTORE, 4)
+            super.visitCode()
+        }
+
+        companion object {
+            public const val CLICKBLE_METHOD_NAME = "clickable-XHw0xAI"
+            public const val CLICAKBLE_METHOD_DESCRIPTOR =
+                "(Landroidx/compose/ui/Modifier;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;Lkotlin/jvm/functions/Function0;)Landroidx/compose/ui/Modifier;"
+        }
+    }
+}

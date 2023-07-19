@@ -1,0 +1,181 @@
+[versions]
+#okhttp
+# tracked via TCT
+okhttp = "4.10.0"
+
+#androidx
+androidx-core = "1.5.0"
+androidx-lifecycle = "2.5.1"
+androidx-fragment = "1.3.6"
+# tracked via TCT
+appcompat = "1.6.1"
+# tracked via TCT
+swipe-refresh = "1.1.0"
+viewpager = "1.0.0"
+# tracked via TCT
+recyclerview = "1.2.1"
+constraint-layout = "2.0.4"
+activity = "1.6.1"
+navigation = "2.5.3"
+core-compose = "1.9.0"
+junit-ext = "1.1.5"
+junit-ktx = "1.1.3"
+compose = "1.3.2"
+fragment = "2.2.2"
+navigation-ui = "2.2.2"
+lifecycle-livedata = "2.2.0"
+lifecycle-runtime = "2.3.1"
+compose-material = "1.3.1"
+core-ktx = "1.4.0"
+
+#runner
+runner = "1.5.2"
+rules = "1.5.0"
+
+#espresso
+espresso = "3.5.1"
+espresso-resource = "1.0.0"
+
+#automator
+uiautomator = "2.2.0"
+
+#android
+support = "28.0.0"
+material-compose = "1.7.0"
+
+#junit
+junit = "4.13.2"
+junit5 = "5.9.2"
+junit-params = "1.1.1"
+
+#assetrion
+assertj = "3.24.2"
+assertj-gradle = "1.1.4"
+
+#mock-server
+web-server = "4.3.1"
+awaitility = "3.1.6"
+wire-mock = "2.27.2"
+bouncy-castle = "1.46"
+
+#mockito
+mockito = "5.1.1"
+mockito-replay = "4.2.0"
+mockito-kotlin = "2.2.0"
+
+#robolectric
+# tracked via TCT
+robolectric = "4.9.2"
+
+#retrofit
+# tracked via TCT
+retrofit = "2.9.0"
+
+#kotlin
+coroutines = "1.5.2"
+stdlib-compose = "1.8.10"
+
+json = "20220924"
+commons-io = "2.11.0"
+annotation = "1.3.2"
+
+dynamicFeature = "13"
+
+#mockk
+mockk = "1.13.4"
+[libraries]
+#okhttp
+squareup-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
+
+#junit
+junit = { module = "junit:junit", version.ref = "junit" }
+junit5 = { module = "org.junit:junit-bom", version.ref = "junit5" }
+junit-params = { module = "pl.pragmatists:JUnitParams", version.ref = "junit-params" }
+
+#androidx
+androidx-test-core = { module = "androidx.test:core", version.ref = "androidx-core" }
+androidx-compose-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
+androidx-compose-ui-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
+androidx-fragment = { module = "androidx.fragment:fragment-testing", version.ref = "androidx-fragment" }
+androidx-lifecycle = { module = "androidx.lifecycle:lifecycle-common-java8", version.ref = "androidx-lifecycle" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+androidx-swipe-refresh = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swipe-refresh" }
+androidx-viewpager = { module = "androidx.viewpager:viewpager", version.ref = "viewpager" }
+androidx-recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
+androidx-constraint-layout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraint-layout" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity" }
+androidx-navigation = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation" }
+androidx-core-compose = { module = "androidx.core:core-ktx", version.ref = "core-compose" }
+androidx-junit-ext = { module = "androidx.test.ext:junit", version.ref = "junit-ext" }
+androidx-junit-compose = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
+androidx-junit-ktx = { module = "androidx.test.ext:junit-ktx", version.ref = "junit-ktx" }
+androidx-fragment-navigation = { module = "androidx.navigation:navigation-fragment", version.ref = "fragment" }
+androidx-navigation-ui = { module = "androidx.navigation:navigation-ui", version.ref = "navigation-ui" }
+androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation-ui" }
+androidx-lifecycle-livedata = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycle-livedata" }
+androidx-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle-livedata" }
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycle-runtime" }
+androidx-compose-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
+androidx-compose-material = { module = "androidx.compose.material:material", version.ref = "compose-material" }
+androidx-test-core-ktx = { module = "androidx.test:core-ktx", version.ref = "core-ktx" }
+
+#runner
+runner = { module = "androidx.test:runner", version.ref = "runner" }
+rules = { module = "androidx.test:rules", version.ref = "rules" }
+
+#espresso
+espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+espresso-remote = { module = "androidx.test.espresso:espresso-remote", version.ref = "espresso" }
+espresso-contrib = { module = "androidx.test.espresso:espresso-contrib", version.ref = "espresso" }
+espresso-web = { module = "androidx.test.espresso:espresso-web", version.ref = "espresso" }
+espresso-resource = { module = "com.jakewharton.espresso:okhttp3-idling-resource", version.ref = "espresso-resource" }
+
+#automator
+uiautomator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "uiautomator" }
+
+#android
+android-support = { module = "com.android.support:support-v4", version.ref = "support" }
+android-support-appcompat = { module = "com.android.support:appcompat-v7", version.ref = "support" }
+android-material-compose = { module = "com.google.android.material:material", version.ref = "material-compose" }
+
+#assertion
+assertj = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+assertj-gradle = { module = "com.github.fhermansson:assertj-gradle-plugin", version.ref = "assertj-gradle" }
+
+#mock-server
+awaitility = { module = "org.awaitility:awaitility", version.ref = "awaitility" }
+wire-mock = { module = "com.github.tomakehurst:wiremock-standalone", version.ref = "wire-mock" }
+bouncy-castle = { module = "org.bouncycastle:bcprov-jdk16", version.ref = "bouncy-castle" }
+web-server = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "web-server" }
+
+#mockito
+mockito = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+mockito-replay = { module = "org.mockito:mockito-core", version.ref = "mockito-replay" }
+mockito-android = { module = "org.mockito:mockito-android", version.ref = "mockito" }
+mockito-junit = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito" }
+mockito-kotlin = { module = "com.nhaarman.mockitokotlin2:mockito-kotlin", version.ref = "mockito-kotlin" }
+
+#robolectric
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+robolectric-http = { module = "org.robolectric:shadows-httpclient", version.ref = "robolectric" }
+
+#retrofit
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+
+#kotlin
+coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+kotlin-stdlib-compose = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "stdlib-compose" }
+kotlin-stdlib-jdk8-compose = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "stdlib-compose" }
+
+json = { module = "org.json:json", version.ref = "json" }
+commons-io = { module = "commons-io:commons-io", version.ref = "commons-io" }
+annotation = { module = "javax.annotation:javax.annotation-api", version.ref = "annotation" }
+
+dynamicFeatureApp = { module = "com.dynatrace.testapps.android:android-dynamic-features", version.ref = "dynamicFeature" }
+
+#mockk
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+
+[bundles]
