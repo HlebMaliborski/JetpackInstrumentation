@@ -47,7 +47,7 @@ public class ClickableClassVisitor(
             println("33333")
             mv.visitTypeInsn(NEW, "com/example/jetpackinstrumentation/ClickableComposeCallback")
             mv.visitInsn(DUP)
-            mv.visitVarInsn(ALOAD, 4);
+            mv.visitVarInsn(ALOAD, 6);
             mv.visitMethodInsn(
                 INVOKESPECIAL,
                 "com/example/jetpackinstrumentation/ClickableComposeCallback",
@@ -55,14 +55,14 @@ public class ClickableClassVisitor(
                 "(Lkotlin/jvm/functions/Function0;)V",
                 false
             )
-            mv.visitVarInsn(ASTORE, 4)
+            mv.visitVarInsn(ASTORE, 6)
             super.visitCode()
         }
 
         companion object {
-            public const val CLICKBLE_METHOD_NAME = "clickable-XHw0xAI"
+            public const val CLICKBLE_METHOD_NAME = "clickable-O2vRcR0"
             public const val CLICAKBLE_METHOD_DESCRIPTOR =
-                "(Landroidx/compose/ui/Modifier;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;Lkotlin/jvm/functions/Function0;)Landroidx/compose/ui/Modifier;"
+                "(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/foundation/Indication;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;Lkotlin/jvm/functions/Function0;)Landroidx/compose/ui/Modifier;"
         }
     }
 }

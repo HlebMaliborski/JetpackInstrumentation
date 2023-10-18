@@ -37,7 +37,7 @@ android {
         }
     }
 }
-gradle.taskGraph.whenReady {  }
+
 configure<InstrumentationPluginExtension> {
     val list = ArrayList<String>()
     list.add("androidx.compose.foundation.ClickableKt")
