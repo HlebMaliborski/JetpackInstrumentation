@@ -32,5 +32,4 @@ object Versions {
   const val GRADLE = "7.2.2"
   const val KOTLIN = "1.7.20"
   const val KOIN = "3.1.3"
-
 }
