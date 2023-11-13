@@ -10,6 +10,7 @@ package com.example.jetpackinstrumentation
 class SomeClass {
     private val localField: Int = 1
     fun someMethod(methodField: Int): Boolean {
+
         return methodField == localField
     }
 }

@@ -44,7 +44,6 @@ public class ClickableClassVisitor(
 
     private class ClickableMethodVisitor(mv: MethodVisitor) : MethodVisitor(ASM9, mv) {
         override fun visitCode() {
-            println("33333")
             mv.visitTypeInsn(NEW, "com/example/jetpackinstrumentation/ClickableComposeCallback")
             mv.visitInsn(DUP)
             mv.visitVarInsn(ALOAD, 6);
