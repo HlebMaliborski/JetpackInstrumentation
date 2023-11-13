@@ -8,7 +8,7 @@ object Versions {
   }
 
   object Google {
-    const val MATERIAL = "1.4.0"
+    const val MATERIAL = "1.10.0"
   }
 
   object AndroidX {
@@ -18,7 +18,7 @@ object Versions {
   }
 
   object Compose {
-    const val CORE = "1.3.0"
+    const val CORE = "1.4.0"
     const val ACTIVITY = "1.6.1"
     const val NAV = "2.5.3"
   }
